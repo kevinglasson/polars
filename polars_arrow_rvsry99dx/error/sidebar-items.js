@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ArrowError","Many different operations in the `some` crate return this error type"]],"type":[["Result",""]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["pretty_format_batches","Create a visual representation of record batches"],["print_batches","Prints a visual representation of record batches to stdout"]]});

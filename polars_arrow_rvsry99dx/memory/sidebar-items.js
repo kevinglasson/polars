@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ALIGNMENT","Cache and allocation multiple alignment size"]],"fn":[["allocate_aligned",""],["free_aligned",""],["is_aligned","Check if the pointer `p` is aligned to offset `a`."],["is_ptr_aligned",""],["memcmp",""],["memcpy",""],["reallocate",""]]});

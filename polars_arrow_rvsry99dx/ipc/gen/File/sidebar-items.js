@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["FooterOffset",""]],"fn":[["finish_footer_buffer",""],["finish_size_prefixed_footer_buffer",""],["get_root_as_footer",""],["get_size_prefixed_root_as_footer",""]],"struct":[["Block",""],["Footer","---------------------------------------------------------------------- Arrow File metadata"],["FooterArgs",""],["FooterBuilder",""]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["and","Performs `AND` operation on two arrays. If either left or right value is null then the result is also null."],["not","Performs unary `NOT` operation on an arrays. If value is null then the result is also null."],["or","Performs `OR` operation on two arrays. If either left or right value is null then the result is also null."]]});

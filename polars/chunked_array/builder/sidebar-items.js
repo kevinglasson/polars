@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["build_primitive_ca_with_opt",""]],"struct":[["PrimitiveChunkedBuilder",""],["Utf8ChunkedBuilder",""]]});

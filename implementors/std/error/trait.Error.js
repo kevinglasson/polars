@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["polars"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/std/error/trait.Error.html\" title=\"trait std::error::Error\">Error</a> for <a class=\"enum\" href=\"polars/error/enum.PolarsError.html\" title=\"enum polars::error::PolarsError\">PolarsError</a>","synthetic":false,"types":["polars::error::PolarsError"]}];
+implementors["polars_arrow_rvsry99dx"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/std/error/trait.Error.html\" title=\"trait std::error::Error\">Error</a> for <a class=\"enum\" href=\"polars_arrow_rvsry99dx/error/enum.ArrowError.html\" title=\"enum polars_arrow_rvsry99dx::error::ArrowError\">ArrowError</a>","synthetic":false,"types":["polars_arrow_rvsry99dx::error::ArrowError"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

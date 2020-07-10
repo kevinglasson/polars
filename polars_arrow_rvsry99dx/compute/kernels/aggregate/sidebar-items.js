@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["max","Returns the maximum value in the array, according to the natural order."],["min","Returns the minimum value in the array, according to the natural order."],["sum","Returns the sum of values in the array."]]});

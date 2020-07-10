@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["polars_arrow_rvsry99dx"] = [{"text":"impl&lt;'_&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/ops/bit/trait.Not.html\" title=\"trait core::ops::bit::Not\">Not</a> for &amp;'_ <a class=\"struct\" href=\"polars_arrow_rvsry99dx/buffer/struct.Buffer.html\" title=\"struct polars_arrow_rvsry99dx::buffer::Buffer\">Buffer</a>","synthetic":false,"types":["polars_arrow_rvsry99dx::buffer::Buffer"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

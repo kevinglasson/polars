@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["take","Take elements from `ArrayRef` by supplying an array of indices."]],"struct":[["TakeOptions","Options that define how `take` should behave"]]});

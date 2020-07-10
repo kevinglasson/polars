@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `series` mod in crate `polars`."><meta name="keywords" content="rust, rustlang, rust-lang, series"><title>polars::series - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../polars/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a><p class='location'>Module series</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>polars</a></p><script>window.sidebarCurrent = {name: 'series', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/polars/series/mod.rs.html#1-530' title='goto source code'>[src]</a></span><span class='in-band'>Module <a href='../index.html'>polars</a>::<wbr><a class="mod" href=''>series</a></span></h1><div class='docblock'><h1 id="series" class="section-header"><a href="#series">Series</a></h1>
+<p>The columnar data type for a DataFrame. The <a href="enum.Series.html">Series enum</a> consists
+of typed <a href="../chunked_array/struct.ChunkedArray.html">ChunkedArray</a>'s. To quickly cast
+a <code>Series</code> to a <code>ChunkedArray</code> you can call the method with the name of the type:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="ident">s</span>: <span class="ident">Series</span> <span class="op">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="ident">iter</span>().<span class="ident">collect</span>();
+<span class="comment">// Quickly obtain the ChunkedArray wrapped by the Series.</span>
+<span class="kw">let</span> <span class="ident">chunked_array</span> <span class="op">=</span> <span class="ident">s</span>.<span class="ident">i32</span>().<span class="ident">unwrap</span>();</pre></div>
+<h2 id="arithmetic" class="section-header"><a href="#arithmetic">Arithmetic</a></h2>
+<p>You can do standard arithmetic on series.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="ident">s</span>: <span class="ident">Series</span> <span class="op">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="ident">iter</span>().<span class="ident">collect</span>();
+<span class="kw">let</span> <span class="ident">out_add</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">+</span> <span class="kw-2">&amp;</span><span class="ident">s</span>;
+<span class="kw">let</span> <span class="ident">out_sub</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">-</span> <span class="kw-2">&amp;</span><span class="ident">s</span>;
+<span class="kw">let</span> <span class="ident">out_div</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">/</span> <span class="kw-2">&amp;</span><span class="ident">s</span>;
+<span class="kw">let</span> <span class="ident">out_mul</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">*</span> <span class="kw-2">&amp;</span><span class="ident">s</span>;</pre></div>
+<p>Or with series and numbers.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="ident">s</span>: <span class="ident">Series</span> <span class="op">=</span> (<span class="number">1</span>..<span class="number">3</span>).<span class="ident">collect</span>();
+<span class="kw">let</span> <span class="ident">out_add_one</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">+</span> <span class="number">1</span>;
+<span class="kw">let</span> <span class="ident">out_multiply</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">s</span> <span class="op">*</span> <span class="number">10</span>;
+
+<span class="comment">// Could not overload left hand side operator.</span>
+<span class="kw">let</span> <span class="ident">out_divide</span> <span class="op">=</span> <span class="number">1</span>.<span class="ident">div</span>(<span class="kw-2">&amp;</span><span class="ident">s</span>);
+<span class="kw">let</span> <span class="ident">out_add</span> <span class="op">=</span> <span class="number">1</span>.<span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="ident">s</span>);
+<span class="kw">let</span> <span class="ident">out_subtract</span> <span class="op">=</span> <span class="number">1</span>.<span class="ident">sub</span>(<span class="kw-2">&amp;</span><span class="ident">s</span>);
+<span class="kw">let</span> <span class="ident">out_multiply</span> <span class="op">=</span> <span class="number">1</span>.<span class="ident">mul</span>(<span class="kw-2">&amp;</span><span class="ident">s</span>);</pre></div>
+<h2 id="comparison" class="section-header"><a href="#comparison">Comparison</a></h2>
+<p>You can obtain boolean mask by comparing series.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">itertools</span>::<span class="ident">Itertools</span>;
+<span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">Series</span>::<span class="ident">new</span>(<span class="string">&quot;dollars&quot;</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="ident">as_ref</span>());
+<span class="kw">let</span> <span class="ident">mask</span> <span class="op">=</span> <span class="ident">s</span>.<span class="ident">eq</span>(<span class="number">1</span>);
+<span class="kw">let</span> <span class="ident">valid</span> <span class="op">=</span> [<span class="bool-val">true</span>, <span class="bool-val">false</span>, <span class="bool-val">false</span>].<span class="ident">iter</span>();
+<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">mask</span>
+    .<span class="ident">into_iter</span>()
+    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">opt_bool</span><span class="op">|</span> <span class="ident">opt_bool</span>.<span class="ident">unwrap</span>()) <span class="comment">// option, because series can be null</span>
+    .<span class="ident">zip</span>(<span class="ident">valid</span>)
+    .<span class="ident">all</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="ident">a</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">*</span><span class="ident">b</span>))</pre></div>
+<p>See all the comparison operators in the <a href="../chunked_array/comparison/trait.CmpOps.html">CmpOps trait</a></p>
+<h2 id="iterators" class="section-header"><a href="#iterators">Iterators</a></h2>
+<p>The Series variants contain differently typed <a href="../chunked_array/struct.ChunkedArray.html">ChunkedArray's</a>.
+These structs can be turned into iterators, making it possible to use any function/ closure you want
+on a Series.</p>
+<p>These iteratiors return an <code>Option&lt;T&gt;</code> because the values of a series may be null.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">polars</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">let</span> <span class="ident">pi</span> <span class="op">=</span> <span class="number">3.14</span>;
+<span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">Series</span>::<span class="ident">new</span>(<span class="string">&quot;angle&quot;</span>, [<span class="number">2f32</span> <span class="op">*</span> <span class="ident">pi</span>, <span class="ident">pi</span>, <span class="number">1.5</span> <span class="op">*</span> <span class="ident">pi</span>].<span class="ident">as_ref</span>());
+<span class="kw">let</span> <span class="ident">s_cos</span>: <span class="ident">Series</span> <span class="op">=</span> <span class="ident">s</span>.<span class="ident">f32</span>()
+                    .<span class="ident">expect</span>(<span class="string">&quot;series was not an f32 dtype&quot;</span>)
+                    .<span class="ident">into_iter</span>()
+                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">opt_angle</span><span class="op">|</span> <span class="ident">opt_angle</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">angle</span><span class="op">|</span> <span class="ident">angle</span>.<span class="ident">cos</span>()))
+                    .<span class="ident">collect</span>();</pre></div>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
+<table><tr><td><code>pub use crate::prelude::<a class="trait" href="../../polars/chunked_array/comparison/trait.CmpOps.html" title="trait polars::chunked_array::comparison::CmpOps">CmpOps</a>;</code></td></tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table><tr class='module-item'><td><a class="enum" href="enum.Series.html" title='polars::series::Series enum'>Series</a></td><td class='docblock-short'></td></tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table><tr class='module-item'><td><a class="trait" href="trait.NamedFrom.html" title='polars::series::NamedFrom trait'>NamedFrom</a></td><td class='docblock-short'></td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "polars";</script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
